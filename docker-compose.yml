@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: "exchange_rates"
+      POSTGRES_USER: "exchangeAdmin"
+      POSTGRES_PASSWORD: "pgpwd4exchange"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - .:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 4G

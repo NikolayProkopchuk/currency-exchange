@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5434/exchange_rates
+    username: exchangeAdmin
+    password: pgpwd4exchange
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    show-sql: true
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+client:
+  fixer:
+    url: https://data.fixer.io
+    access-key: add-your-key-here
+    base-currency-code: EUR
+    request-path: /api/latest?access_key={accessKey}&base={baseCurrencyCode}&symbols={targetCurrencyCodes}
